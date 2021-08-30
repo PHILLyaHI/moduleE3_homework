@@ -1,15 +1,14 @@
-// Version 0.5
-function nums(a, b) {
-    while (a <= b) {
-        console.log(a)
-        a++
-    }
-}
-const intervalId = setInterval(nums, 1000, 5, 15)
-setTimeout(function() {
-    clearInterval(intervalId)
-}, 1500)
+function funcInterval(a, b) {
+    let intevalFunction = setInterval(function(b, fn) {
+        console.log(a);
+        a++;
+        if (a > b) {
+            fn();
+        };
+    }, 1000, b, stopInterval);
 
-
-// Не успел дождаться ответа ментора на вопрос
-// поэтому код немного не доделоний, а ведь дэдлайн идет.
+    function stopInterval() {
+        clearInterval(intevalFunction);
+    };
+};
+funcInterval(4, 7);
